@@ -1,1 +1,59 @@
-<h2>欢迎访问 蓝简办后台 - 所有功能开放</h2>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>蓝简办 · 控制台</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900 p-6 space-y-8">
+  <h1 class="text-3xl font-bold">蓝简办 · 控制中心</h1>
+
+  <!-- 模块一：设备管理 -->
+  <section class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-semibold mb-2">设备列表</h2>
+    <table class="w-full text-sm border">
+      <thead class="bg-gray-100">
+        <tr><th class="p-2 border">设备</th><th class="p-2 border">村庄</th><th class="p-2 border">状态</th><th class="p-2 border">操作</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="p-2 border">AP-001</td><td class="p-2 border">西荒村</td><td class="p-2 border text-green-600">在线</td><td class="p-2 border"><button class="bg-blue-500 text-white px-2 py-1 rounded text-xs">配置</button></td></tr>
+        <tr><td class="p-2 border">RT-003</td><td class="p-2 border">小付街村</td><td class="p-2 border text-red-500">离线</td><td class="p-2 border"><button class="bg-blue-500 text-white px-2 py-1 rounded text-xs">配置</button></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 模块二：系统日志 -->
+  <section class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-semibold mb-2">系统日志</h2>
+    <ul class="text-sm space-y-1 text-gray-700">
+      <li>2024-04-11 09:42 - 西荒村设备上线</li>
+      <li>2024-04-11 09:43 - 小付街村设备断开</li>
+      <li>2024-04-11 09:45 - 蓝简办修改了用户权限</li>
+    </ul>
+  </section>
+
+  <!-- 模块三：API 控制台 -->
+  <section class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-semibold mb-2">API 模拟控制台</h2>
+    <form onsubmit="event.preventDefault(); alert('模拟发送成功！');">
+      <label class="text-sm">API 地址：</label><br>
+      <input type="text" placeholder="/api/device/restart" class="border p-2 w-full mb-2 rounded text-sm" />
+      <label class="text-sm">参数（JSON）：</label><br>
+      <textarea class="border p-2 w-full mb-2 rounded text-sm" rows="4">{ "device": "AP-001" }</textarea>
+      <button class="bg-green-600 text-white px-4 py-1 rounded text-sm">提交</button>
+    </form>
+  </section>
+
+  <!-- 模块四：修改密码 -->
+  <section class="bg-white p-4 rounded shadow">
+    <h2 class="text-xl font-semibold mb-2">修改蓝简办密码</h2>
+    <form onsubmit="event.preventDefault(); alert('密码已更新（模拟）');" class="space-y-2">
+      <input type="password" placeholder="旧密码" class="border p-2 w-full rounded text-sm" />
+      <input type="password" placeholder="新密码" class="border p-2 w-full rounded text-sm" />
+      <input type="password" placeholder="确认新密码" class="border p-2 w-full rounded text-sm" />
+      <button class="bg-red-600 text-white px-4 py-1 rounded text-sm">确认修改</button>
+    </form>
+  </section>
+</body>
+</html>
