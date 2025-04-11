@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>村联网 A 方案</title>
+  <link rel="stylesheet" href="../assets/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+</head>
+<body>
+  <h1>村民端：实时流量展示</h1>
+  <div id="pie" style="height:300px;"></div>
+  <p>数据总量：<progress value="75" max="100"></progress></p>
+  <p>数据剩余：<progress value="25" max="100"></progress></p>
+  <script>
+    const chart = echarts.init(document.getElementById('pie'));
+    const option = {
+      title: { text: '流量速度波动', left: 'center' },
+      series: [{
+        type: 'pie',
+        data: [
+          { value: 1.5, name: '上限 Mbps' },
+          { value: 0.5, name: '下限 Mbps' }
+        ]
+      }]
+    };
+    chart.setOption(option);
+    setInterval(() => chart.setOption(option), 50000);
+  </script>
+</body>
+</html>
