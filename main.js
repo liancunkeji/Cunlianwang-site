@@ -1,0 +1,1 @@
+// React code would be compiled and bundled here by a real build system
